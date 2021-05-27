@@ -11,11 +11,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import java.util.List;
-
 public class UserServiceImpl implements UserService {
 
-    private static final UserDao dao = new UserDaoJDBCImpl();
+    private final UserDao dao;
+
+    public UserServiceImpl() {
+        dao = new UserDaoJDBCImpl();
+    }
 
     public void createUsersTable() {
         dao.createUsersTable();
@@ -41,5 +43,3 @@ public class UserServiceImpl implements UserService {
         dao.cleanUsersTable();
     }
 }
-
-
